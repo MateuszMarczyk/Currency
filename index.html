@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,4 +73,80 @@ xhr.open("GET", "http://api.nbp.pl/api/exchangerates/rates/a/chf/", true);
         })
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body{
+            margin-top: 100px;
+            background: black;
+            color: white
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="display-4 text-center mb-3">Currency calculator</h1>
+                <form>
+                    <div class="form-group">
+                        <input id="plnInput" type="number" class="form-control form-control-lg" placeholder="Enter Value...">
+                    </div>
+                </form>
+                <div id="oputput">
+                    <div class="card bg-primary mb-2">
+                        <div class="cart-block">
+                            <h4>EUR:</h4>
+                            <div id="eurOutput"></div>
+                        </div>
+                    </div>
+                    <div class="card bg-success mb-2">
+                        <div class="cart-block">
+                            <h4>USD:</h4>
+                            <div id="usdOutput"></div>
+                        </div>
+                    </div>
+                    <div class="card bg-danger mb-2">
+                        <div class="cart-block">
+                            <h4>RUB:</h4>
+                            <div id="rubOutput"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+const xhr = new XMLHttpRequest();
+xhr.responseType = "json"
+
+xhr.addEventListener("load", function() {
+    if (xhr.status === 200) {
+        console.log("Wynik połączenia:");
+        console.log(xhr.response);
+    }
+});
+
+xhr.addEventListener("error", function() {
+    alert("Niestety nie udało się nawiązać połączenia");
+});
+
+xhr.open("GET", "http://api.nbp.pl/api/exchangerates/rates/a/chf/", true);
+xhr.send();
+
+        document.getElementById("plnInput").addEventListener("input", function(e){
+            let euroValue = e.target.value;
+            document.getElementById('eurOutput').innerHTML = euroValue/3;
+            document.getElementById('usdOutput').innerHTML = euroValue/4;
+            document.getElementById('rubOutput').innerHTML = euroValue/5;
+        })
+    </script>
+</body>
+>>>>>>> 914c86df9dbbfdad008a7455521565bd8f30eedc
 </html>
