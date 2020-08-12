@@ -47,8 +47,9 @@
         </div>
     </div>
     <script>
-const xhr = new XMLHttpRequest();
-xhr.responseType = "json"
+
+const xhr = new XMLHttpRequest(); // index.js
+xhr.responseType = "json";
 
 xhr.addEventListener("load", function() {
     if (xhr.status === 200) {
@@ -62,7 +63,6 @@ xhr.addEventListener("error", function() {
 });
 
 xhr.open("GET", "http://api.nbp.pl/api/exchangerates/rates/a/chf/", true);
-xhr.send();
 
         document.getElementById("plnInput").addEventListener("input", function(e){
             let euroValue = e.target.value;
