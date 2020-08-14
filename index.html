@@ -46,30 +46,7 @@
             </div>
         </div>
     </div>
-    <script>
+    <script src="script.js"></script>>
 
-const xhr = new XMLHttpRequest(); // index.js
-xhr.responseType = "json";
-
-xhr.addEventListener("load", function() {
-    if (xhr.status === 200) {
-        console.log("Wynik połączenia:");
-        console.log(xhr.response);
-    }
-});
-
-xhr.addEventListener("error", function() {
-    alert("Niestety nie udało się nawiązać połączenia");
-});
-
-xhr.open("GET", "http://api.nbp.pl/api/exchangerates/rates/a/chf/", true);
-
-        document.getElementById("plnInput").addEventListener("input", function(e){
-            let euroValue = e.target.value;
-            document.getElementById('eurOutput').innerHTML = euroValue/3;
-            document.getElementById('usdOutput').innerHTML = euroValue/4;
-            document.getElementById('rubOutput').innerHTML = euroValue/5;
-        })
-    </script>
 </body>
 </html>
